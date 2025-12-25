@@ -1,8 +1,8 @@
-title: MegaBoids
-description: Documentation for the MegaBoids Unreal plugin
+title: MegaPunk Games Inc.
+description: MegaPunk Games Website
 theme: just-the-docs
 
-url: https://megapunkgames.github.io/MegaBoidsWiki/docs
+url: https://megapunkgames.com/
 
 collections:
   documentation:
@@ -10,7 +10,7 @@ collections:
 
 defaults:
   - scope:
-      path: "docs" # an empty string here means all files in the project
+      path: "" # an empty string here means all files in the project
       type: "pages"
     values:
       layout: "default"
