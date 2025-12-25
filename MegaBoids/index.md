@@ -11,6 +11,8 @@ MegaBoids in a Mass Entity plugin to create groups of ambient NPCs with rich beh
 
 [Get MegaBoids on Fab](https://www.fab.com/portal/listings/bfcc52a6-6ee7-4d78-a7be-c65ce4f0a18c)
 
+[Check out the documentation](Documentation)
+
 # Features
 * Based on Mass Entity for maximum performance
 * Fully multi threaded to make the most use of those CPU cores
