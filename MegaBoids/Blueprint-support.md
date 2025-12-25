@@ -1,23 +1,11 @@
 ---
 title: Blueprint
-layout: page
+layout: megaboids
 parent: Technical Documentation
 nav_order: 4
 back_to_top: true
 back_to_top_text: "Back to top"
 ---
-
-<style>
-table th:nth-of-type(1) {
-    width: 100px;
-}
-table th:nth-of-type(2) {
-    width: 600px;
-}
-table th:nth-of-type(3) {
-    width: 150px;
-}
-</style>
 
 <details open markdown="block">
   <summary>
@@ -33,17 +21,17 @@ table th:nth-of-type(3) {
 Some functions of the plugin are be exposed through blueprint but the blueprint API is fairly limited. This is due to [blueprint support in the Mass Entity framework](#Extending-the-plugin-Mass-Entity-blueprint-support).
 The blueprint API is curently limited to spawning and despawning and can be accessed through the [spawner actor](Spawner-and-Groups).
 
-![Spawner Blueprint A P I Preview](resources/SpawnerBlueprintAPIPreview.png)
+![Spawner Blueprint A P I Preview](/assets/images/MegaBoids/SpawnerBlueprintAPIPreview.png)
 
 | Function | Details | |
 | :-------- | :---------- | :---------- |
-| Do Spawning | Spawns the group for which the spawner is configured.<br><br>**<ins>Return value</ins>**<br>_Group ID_: ID of the group that was spawned or -1 if it failed | [![Do Spawning Preview](resources/DoSpawningPreview.png)](resources/DoSpawningPreview.png) |
-| Despawn Group | Schedules a despawn request for the group with the provided ID.<br><br>**<ins>Parameters</ins>**<br>_Group ID_: Id of the group to despawn, as returned by 'Do Spawning' | [![Despawn Group Preview](resources/DespawnGroupPreview.png)](resources/DespawnGroupPreview.png) |
-| Despawn Group Immediate | Despawn the group with the provided ID immediately. This is an unsafe call to do on the game thread as there might be background tasks currently running.<br>**Users should preferably use the non-immediate version.**<br><br>**<ins>Parameters</ins>**<br>_Group ID_: Id of the group to despawn, as returned by 'Do Spawning' | [![Despawn Group Immediate Preview](resources/DespawnGroupImmediatePreview.png)](resources/DespawnGroupImmediatePreview.png) |
-| Despawn All | Schedules a despawn request for the all groups that were instanciated with this spawner. | [![Despawn All Preview](resources/DespawnAllPreview.png)](resources/DespawnAllPreview.png) |
-| Despawn All Immediate | Despawn all groups that were instanciated with this spawner immediately. This is an unsafe call to do on the game thread as there might be background tasks currently running.<br>**Users should preferably use the non-immediate version.** | [![Despawn All Immediate Preview](resources/DespawnAllImmediatePreview.png)](resources/DespawnAllImmediatePreview.png) |
+| Do Spawning | Spawns the group for which the spawner is configured.<br><br>**<ins>Return value</ins>**<br>_Group ID_: ID of the group that was spawned or -1 if it failed | [![Do Spawning Preview](/assets/images/MegaBoids/DoSpawningPreview.png)](/assets/images/MegaBoids/DoSpawningPreview.png) |
+| Despawn Group | Schedules a despawn request for the group with the provided ID.<br><br>**<ins>Parameters</ins>**<br>_Group ID_: Id of the group to despawn, as returned by 'Do Spawning' | [![Despawn Group Preview](/assets/images/MegaBoids/DespawnGroupPreview.png)](/assets/images/MegaBoids/DespawnGroupPreview.png) |
+| Despawn Group Immediate | Despawn the group with the provided ID immediately. This is an unsafe call to do on the game thread as there might be background tasks currently running.<br>**Users should preferably use the non-immediate version.**<br><br>**<ins>Parameters</ins>**<br>_Group ID_: Id of the group to despawn, as returned by 'Do Spawning' | [![Despawn Group Immediate Preview](/assets/images/MegaBoids/DespawnGroupImmediatePreview.png)](/assets/images/MegaBoids/DespawnGroupImmediatePreview.png) |
+| Despawn All | Schedules a despawn request for the all groups that were instanciated with this spawner. | [![Despawn All Preview](/assets/images/MegaBoids/DespawnAllPreview.png)](/assets/images/MegaBoids/DespawnAllPreview.png) |
+| Despawn All Immediate | Despawn all groups that were instanciated with this spawner immediately. This is an unsafe call to do on the game thread as there might be background tasks currently running.<br>**Users should preferably use the non-immediate version.** | [![Despawn All Immediate Preview](/assets/images/MegaBoids/DespawnAllImmediatePreview.png)](/assets/images/MegaBoids/DespawnAllImmediatePreview.png) |
 
-> [!NOTE]
+{: .note }
 > More Blueprint functions will be provided in the future for finer control over boids. We are currently planning to add raycasting, spawning and despawning without a spawner reference in order to support more complex gameplay scenarios.
 
 

@@ -1,29 +1,17 @@
 ---
 title: Project Settings
-layout: page
-parent: Basic Concepts
+layout: megaboids
+parent: User Guide
 nav_order: 6
 back_to_top: true
 back_to_top_text: "Back to top"
 ---
 
-<style>
-table th:nth-of-type(1) {
-    width: 100px;
-}
-table th:nth-of-type(2) {
-    width: 600px;
-}
-table th:nth-of-type(3) {
-    width: 150px;
-}
-</style>
-
 # Project Settings
 
 Within the **Project Settings - MegaBoids** page, you will find some project specific settings for the plugin, unsurprisingly. These settings allow basic configuration of the plugin for your game.
 
-![Project Settings Preview](resources/ProjectSettingsPreview.png)
+![Project Settings Preview](/assets/images/MegaBoids/ProjectSettingsPreview.png)
 
 | Settings | Description |
 | :------- | :---------- |

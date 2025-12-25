@@ -1,23 +1,9 @@
 ---
 title: Spawners and Groups
-layout: page
-parent: Basic Concepts
+layout: megaboids
+parent: User Guide
 nav_order: 5
-back_to_top: true
-back_to_top_text: "Back to top"
 ---
-
-<style>
-table th:nth-of-type(1) {
-    width: 100px;
-}
-table th:nth-of-type(2) {
-    width: 600px;
-}
-table th:nth-of-type(3) {
-    width: 150px;
-}
-</style>
 
 <details open markdown="block">
   <summary>
@@ -33,7 +19,7 @@ In the previous pages, we explained the different elements that come together to
 
 MegaBoids spawners are an actor class that you must place in your level in order to spawn a [group of boids](#Groups). When we spawn a batch of boids, we are actually spawning one group. Boid within a group share a set of properties for the duration of their lifetime. It includes their bounding box, an optional space partition and specialized driving subprocessors among others. The whole set of properties is listed below:
 
-![Spawner Preview](resources/SpawnerPreview.png)
+![Spawner Preview](/assets/images/MegaBoids/SpawnerPreview.png)
 
 | Parameter | Description |
 | :-------- | :---------- |
@@ -51,10 +37,10 @@ The first thing to know about groups is that they are all **independent from eac
 # Group Composition
 At this point, you possibly think that the spawner takes a boid configuration and spawns a batch using that template, straps a few extras on and we're good. Although not far from the truth, the spawner has an extra trick up its sleeve: it can create boid subgroups of the same or a different configuration. This opens up so many possibilities for complex behaviors, some of which we already touched on in the [anatomy page](Anatomy-of-a-boid#ghost-boids). Keeping in mind that there is no interaction between groups, the spawner allows group composition and entities within a group can interact. This means you can actually have cool designs like a hundred small fish roaming around a pool of shark or different personalities for a entities within a clowder of cats. Coupled with different [representations](Anatomy-of-a-boid#Representation) per boid configuration, you can achieve incredibly realistic results.
 
-> [!Note]
+{: .note }
 > When compositing boids of vastly different sizes, that larger boids automatically ignore the "considerably" smaller ones. Just like a dragon won't budge for a goblin, your boids will behave organically!
 
-![Spawner Details](resources/SpawnerDetails.png)
+![Spawner Details](/assets/images/MegaBoids/SpawnerDetails.png)
 
 # Space partition
 Space partitioning is a technique commonly used in video games to improve performance. Many operations in a game AI require to search the surroundings to find entities near you. Boids do this extensively when searching for their neighbors in order to compute [basic steering forces](Anatomy-of-a-boid#Steering). When we deal with thousands of entities, it means each boid needs to compute the distance with every other boid in the group, making for millions of operations. Partitioning the 3D space in cells allows us to only consider the boids in cells near our position and therefore making it manageable.
@@ -69,7 +55,7 @@ The space partition currently comes in two flavors: a dense cell grid and an spa
 When used with multiple boid configurations in a group, each configuration/subgroup will have it's own space partition within an aggregate group partition but will execute it's neighbor search among all partitions available for the group as long as the boid size is relevant (Steering, for instance, ignores "significantly" smaller boids).
 
 ## Space Partition Settings
-![Space Partition Settings Preview](resources/SpacePartitionSettingsPreview.png)
+![Space Partition Settings Preview](/assets/images/MegaBoids/SpacePartitionSettingsPreview.png)
 
 | Parameter | Description |
 | :-------- | :---------- |
@@ -86,5 +72,4 @@ Because different boids and environments have different requirements, we introdu
 1. In the Project Settings page, under MegaBoids, you will find the default project space partition. If no other override is set further down the chain, this is the value that will be used.
 1. After the project default, you can set a default per boid configuration in the [boid config data asset](Anatomy-of-a-boid). All boids spawned with the configuration will use the specified space partition if overridden at this level.
 1. Next, you can also override the partition settings at the spawner level. Here, you can override the space partition for all configurations in the spawner with a single settings, overriding both the project and configuration settings. This is useful to optimize the space partition for the environment in which it spawns.
-1. Finally, still on the spawner, you can 
-2. set the space partition settings for each spawn configuration independently, similarly to the applicability of the [driving subprocessors](Driving-subprocessors) in the spawner. This is the ultimate level of specialization. Overriding the space partition at this level ignores all previous settings.
+1. Finally, still on the spawner, you can set the space partition settings for each spawn configuration independently, similarly to the applicability of the [driving subprocessors](Driving-subprocessors) in the spawner. This is the ultimate level of specialization. Overriding the space partition at this level ignores all previous settings.

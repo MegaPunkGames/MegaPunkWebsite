@@ -1,8 +1,9 @@
 ---
 title: MegaBoids
-layout: home
+layout: megaboids
 parent: Projects
 nav_order: 1
+has_toc: false
 ---
 
 # Introduction
@@ -24,7 +25,7 @@ MegaBoids in a Mass Entity plugin to create groups of ambient NPCs with rich beh
 
 ***
 
-> [!NOTE]
+{: .note }
 > **CURRENTLY IN ALPHA PHASE.**
 
 We are currently releasing this plugin as an ALPHA version while we keep on adding new features. We are happy with the current architecture based on subprocessors which allows us to extend the API and modify it's internals with limited impact on the users. Therefore, we will now focus mostly on adding new features and bug fixing but you should expect a smooth transition over to the beta and official release afterwards.

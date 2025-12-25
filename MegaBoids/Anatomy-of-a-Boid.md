@@ -1,23 +1,11 @@
 ---
 title: Anatomy of a Boid
-layout: page
-parent: Basic Concepts
+layout: megaboids
+parent: User Guide
 nav_order: 1
 back_to_top: true
 back_to_top_text: "Back to top"
 ---
-
-<style>
-table th:nth-of-type(1) {
-    width: 100px;
-}
-table th:nth-of-type(2) {
-    width: 600px;
-}
-table th:nth-of-type(3) {
-    width: 150px;
-}
-</style>
 
 <details open markdown="block">
   <summary>
@@ -33,7 +21,7 @@ table th:nth-of-type(3) {
 In MegaBoids, the core configuration of your entities takes place in a [Data Asset](https://dev.epicgames.com/documentation/en-us/unreal-engine/data-assets-in-unreal-engine), the 'Boid configuration data asset'. As expected, the data asset is meant to define the shared parameters of a type of boid. We mentioned [earlier](Basic-concepts) that boids movement starts with alignment, cohesion and separation and the data asset is where we can configure these properties' relative importance. You will spend a fair amount of time tweaking the strength of these forces but the boid config data asset also holds other important properties:
 
 <a name="ConfigDataAsset"></a>
-![Data Asset Preview](resources/DataAssetPreview.png)
+![Data Asset Preview](/assets/images/MegaBoids/DataAssetPreview.png)
 
 | Parameter | Description |
 | :-------- | :---------- |
@@ -57,10 +45,10 @@ In MegaBoids, the core configuration of your entities takes place in a [Data Ass
 # Initialization
 Initializing your boids is an important step to ensure they are in an adequate state when spawned. Most of the time, this would be environment dependent so best done in the [spawner](Spawners-and-groups).
 
-> [!NOTE]
+{: .note }
 > You might have some default initialization to do, for instance, for the [per-instance custom data](#per-instance-custom-data). You can add these initializers to your boid configuration directly. This feature is planned but not yet implemented. Use the spawner initializers in the mean time.
 
-> [!IMPORTANT]
+{: .important-title }
 > [Requires C++](Blueprint-support)
 >
 > Most initializers are very specific and rely on C++ data types. Therefore, it is very likely you will need custom initializers for your project. These are written in C++ because of limited Blueprint support in Mass Entity. We invite you to head to the [technical documentation](Technical-reference) for more information.
@@ -103,7 +91,7 @@ To configure your boid representation, use the 'Representation infos' field in t
 ## HISM Representation
 HISMs provide instanced rendering of static meshes with LOD support, giving you low GPU usage so you can have all the entities you require on screen. On top of that, each representation can have up to 4 meshes to do a simple composition. Although it is available and sometimes useful, *it is much better to use a single merged mesh to improve performance*. You also need to keep in mind that the boids keep the same estimated boid size so their representation meshes should respect it. Nevertheless, each representation mesh has the following properties:
 
-![HISM Details](resources/HISMDetails.png)
+![HISM Details](/assets/images/MegaBoids/HISMDetails.png)
 
 | Parameter | Description |
 | :-------- | :---------- |
@@ -128,7 +116,7 @@ Initializing your custom data should be done in an [initializer](#Initialization
 ### Animation
 As mentioned previously, you can use per-instance custom data to animate your boids on the GPU, at the shader level. It is way beyond the scope of MegaBoids to offer a full fledged shader-based animation system. We would definitely like to offer such a solution in the future but haven't got to it yet. However, we demonstrate how it can be achieved in the demo to help get you started. You can see some bouncy balls and fish being animated with a simple shader as well as the butterflies implementing texture based vertex animation.
 
-> [!IMPORTANT]
+{: .important-title }
 > [Requires C++](Blueprint-support)
 > 
 > Because accessing data in Mass Entity requires writing C++, we consider this a more advanced and technical operation. Suffice to say that you can access your per-instance custom data to update it from within a driving or movement subprocessors, or any other [Mass Entity processor](https://dev.epicgames.com/documentation/en-us/unreal-engine/overview-of-mass-entity-in-unreal-engine). More details available in the [technical documentation](Technical-reference).
@@ -136,8 +124,8 @@ As mentioned previously, you can use per-instance custom data to animate your bo
 ## Actors (Mass Visualization)
 Mass Entity is a framework that aims to move away from the actor-component model in order to achieve better performance. With that in mind, MegaBoids offers a representation solution based on instanced static meshes. We built this plugin with ambient AI in mind (where static meshes are often preferable) while ensuring it is not limited to this particular use-case. Because Mass Entity offers a solution to attach actors to entities, we made sure to support this feature as well. To do so, you will have to select the MassRepresentation type of representation and configure them according to your needs. In the configuration for MassRepresentation you will find fields for 3 LODs: high resolution, low resolution and static mesh. You can also configure the LOD distances as well as what type of representation is used for each LOD level. Make sure to check out this demo to see how to configure your boids for an actor based representation.
 
-> [!NOTE]
-> Mass Entity in Unreal Engine 5.1 has it's share of issues and was far from an easy to use product. You will need to activate some processors manually in the Mass project settings in order for the actor representation to work properly with LODs. Check out the DefaultMass.ini file in the demo.
+{: .note }
+> Mass Entity in Unreal Engine 5.1 has it's share of issues and is not recommended. If you are using it, you will need to activate some processors manually in the Mass project settings in order for the actor representation to work properly with LODs. Check out the DefaultMass.ini file in the demo.
 
 ## Ghost boids
 Most of the time you will want your boids rendered of course. However, it is absolutely valid to have "ghost" boids in some situations. Ghost boids are simply boids without a visual representation. Leave the representation infos empty and the boids will be simulated but not rendered. You can use such boids to drive [boids of another configuration](Spawners-and-groups#group-composition). For instance, you could use the 'Follow the leader' driving subprocessor with ghost leaders and your "real" boids as followers, producing a coherent complex group behaviour that would be harder to achieve otherwise.

@@ -1,6 +1,6 @@
 ---
 title: Plugin Architecture
-layout: page
+layout: megaboids
 parent: Technical Documentation
 nav_order: 1
 back_to_top: true

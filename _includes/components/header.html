@@ -1,0 +1,11 @@
+<div id="main-header" class="main-header">
+    {% if layout.search_enabled != false %}
+    {% include components/search_header.html %}
+    {% else %}
+    <div></div>
+    {% endif %}
+    {% include header_custom.html %}
+    {% if layout.aux_links %}
+    {% include components/aux_nav.html %}
+    {% endif %}
+</div>

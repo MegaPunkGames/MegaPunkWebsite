@@ -1,8 +1,9 @@
 ---
 title: Basic Concepts
-layout: page
-parent: Documentation
-nav_order: 2
+layout: megaboids
+parent: User Guide
+nav_order: 1
+has_toc: false
 ---
 
 # Boids
@@ -12,15 +13,7 @@ The basic elements of boid movement is composed of three parts: alignment, cohes
 
 We will go into more details on how to configure a boid in the next section, [Anatomy of a boid](Anatomy-of-a-boid). For implementation details and to learn how to extend the plugin for your own needs, head to the [technical reference](Technical-reference).
 
-![Steering Debug Draw](resources/SteeringDebugDraw.png)
-
-# Contents
-1. [Anatomy of a Boid](Anatomy-of-a-boid)
-1. [Driving forces](Driving-Subprocessors)
-1. [Environment forces](Envoronment-Subprocessors)
-1. [Movement Models](Movement-Models)
-1. [Spawners and Groups](Spawners-and-groups)
-1. [Project Settings](Project-Settings)
+![Steering Debug Draw](/assets/images/MegaBoids/SteeringDebugDraw.png)
 
 ***
 
