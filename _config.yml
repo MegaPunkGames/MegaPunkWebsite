@@ -144,6 +144,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 color_scheme: megapunk
 
 callouts_level: quiet # or loud
+callouts_opacity: 0.35
 callouts:
   highlight:
     color: yellow
