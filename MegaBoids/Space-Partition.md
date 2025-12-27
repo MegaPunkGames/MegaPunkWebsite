@@ -14,6 +14,7 @@ nav_order: 6
 {:toc}
 </details>
 
+# Space Partition
 Space partitioning is a technique commonly used in video games to improve performance. Many operations in a game AI require to search the surroundings to find entities near you. Boids do this extensively when searching for their neighbors in order to compute [basic steering forces](Anatomy-of-a-Boid#steering). When we deal with thousands of entities, it means each boid needs to compute the distance with every other boid in the group, making for millions of operations. Partitioning the 3D space in cells allows us to only consider the boids in cells near our position and therefore making it manageable.
 
 The cell grid is a good optimization, but can only help so much when all entities are tightly packed. A further improvement available is that we can limit the number of boids in each cell. If a cell contains more than the specified number of boids, some of them will simply be ignored from the [steering](Anatomy-of-a-Boid#steering) calculations, or any other neighbor range search in your custom driving or movement subprocesors. Of course, it comes with an impact on the separation part of steering especially since boids can't separate from neighbors which are not tracked in the space partition. Cohesion and alignment aren't impacted as much since past a certain threshold, each boid's impact becomes fairly small. Finding the right balance is key here.

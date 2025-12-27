@@ -14,6 +14,7 @@
 
 table {
     font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid #ddd;
     border-collapse: collapse;
     width: 100%;
 }
@@ -23,11 +24,15 @@ td, th {
     padding: 8px;
 }
 
+td {
+    background-color: #5c5962;
+}
+
 th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #7253ed;
+    background-color: #44434d;
     color: white;
 }
 
@@ -37,4 +42,48 @@ table th:nth-of-type(1) {
 
 table th:nth-of-type(3) {
     width: 150px;
+}
+
+blockquote.note, blockquote.note-title {
+    background: rgba($purple-000, 0.35);
+}
+
+blockquote.note::before, blockquote.note-title > p:first-child {
+    color: #280875;
+}
+
+blockquote.important, blockquote.important-title {
+    background: rgba($blue-000, 0.35);
+}
+
+blockquote.important::before, blockquote.important-title > p:first-child {
+    color: #082375;
+}
+
+blockquote.warning, blockquote.warning-title {
+    background: rgba($red-000, 0.35);
+}
+
+blockquote.warning::before, blockquote.warning-title > p:first-child {
+    color: #cd1e1e;
+}
+
+blockquote.highlight, blockquote.highlight-title {
+    background: rgba($yellow-000, 0.35);
+}
+
+blockquote.highlight::before, blockquote.highlight-title > p:first-child {
+    color: #d79f00;
+}
+
+blockquote.new, blockquote.new-title {
+    background: rgba($green-000, 0.35);
+}
+
+blockquote.new::before, blockquote.new-title > p:first-child {
+    color: #005e47;
+}
+
+ul#markdown-toc {
+    line-height: 1;
 }

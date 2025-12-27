@@ -48,7 +48,7 @@ Initializing your boids is an important step to ensure they are in an adequate s
 > You might have some default initialization to do, for instance, for the [per-instance custom data](#per-instance-custom-data). You can add these initializers to your boid configuration directly. This feature is planned but not yet implemented. Use the spawner initializers in the mean time.
 
 {: .important-title }
-> [Requires C++](Blueprint-support)
+> [Requires C++](Blueprint-support) TEST
 >
 > Most initializers are very specific and rely on C++ data types. Therefore, it is very likely you will need custom initializers for your project. These are written in C++ because of limited Blueprint support in Mass Entity. We invite you to head to the [technical documentation](Technical-Reference) for more information.
 
