@@ -12,9 +12,9 @@ nav_order: 2
 - Compile and enjoy!
 
 # First steps
-- Create a [boid config](Anatomy-of-a-boid) data asset
+- Create a [boid config](Anatomy-of-a-Boid) data asset
 - Configure your boid template data asset
-- Add a [MegaBoids Spawner](Spawners-and-groups) actor to your level
+- Add a [MegaBoids Spawner](Spawners-and-Groups) actor to your level
 - Customize the spawner
 - Press Play
 

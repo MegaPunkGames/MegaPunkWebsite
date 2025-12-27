@@ -20,7 +20,7 @@ back_to_top_text: "Back to top"
 
 The movement model in MegaBoids is the equivalent of the movement or mover component for Unreal actors. Just like the "regular" movement component, the purpose of the movement model is to act on the boid's input to move the entity in the world. In the case of MegaBoids, the input consists of our 3 different force vectors (steering, propulsion and environment forces) which can impact our movement in different ways, according to your needs.
 
-The movement model in an integral part of a boid and should not differ based on the environment. Therefore, it is configured at the boid level, within the [configuration data asset](Anatomy-of-a-boid). Below, you will find a list of readily available movement models you can use to configure your boids.
+The movement model in an integral part of a boid and should not differ based on the environment. Therefore, it is configured at the boid level, within the [configuration data asset](Anatomy-of-a-Boid#boid-configuration). Below, you will find a list of readily available movement models you can use to configure your boids.
 
 {: .important }
 > More movement models will be developed as we move towards Beta and final release. Feel free to [contact us](mailto:contact@megapunkgames.com) with your requests. This valuable feedback will drive our efforts and is one of the reasons we are releasing in Alpha.

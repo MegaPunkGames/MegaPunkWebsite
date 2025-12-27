@@ -11,7 +11,7 @@ First developed by Craig Reynolds in 1986, boids<sup>[1](#Ref1)</sup> (short for
 
 The basic elements of boid movement is composed of three parts: alignment, cohesion and separation. In our implementation, the three elements as well as an avoidance force (to navigate around environment obstacles) add up based on the boid configuration and result in a vector force that takes care of steering (left-right & up-down). To give purpose to the boid entities, we also compute a driving force which handles propulsion ("forward" movement). Finally, environment forces are external forces that act on the boid. Steering, environment and driving forces are then aggregated in a cohesive manner within a movement model that updates the location and orientation of the entity.
 
-We will go into more details on how to configure a boid in the next section, [Anatomy of a boid](Anatomy-of-a-boid). For implementation details and to learn how to extend the plugin for your own needs, head to the [technical reference](Technical-reference).
+We will go into more details on how to configure a boid in the next section, [Anatomy of a boid](Anatomy-of-a-Boid). For implementation details and to learn how to extend the plugin for your own needs, head to the [technical reference](Technical-Reference).
 
 ![Steering Debug Draw](/assets/images/MegaBoids/SteeringDebugDraw.png)
 

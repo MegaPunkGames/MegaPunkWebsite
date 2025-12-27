@@ -9,7 +9,7 @@ has_toc: false
 # Introduction
 MegaBoids in a Mass Entity plugin to create groups of ambient NPCs with rich behavior. Based on the common boid algorithm with alignment, cohesion and separation, MegaBoids makes it easy to create atmosphere within your environment by adding thousands of entities with small CPU and GPU overhead. Whether it's flocks of birds, swarms of insects, schools of fish or your custom groups of aliens, this plugin has it covered with it's extensive feature set and support for custom behavior injection.
 
-[Get MegaBoids on Fab](https://www.fab.com/portal/listings/bfcc52a6-6ee7-4d78-a7be-c65ce4f0a18c)
+[Get MegaBoids on Fab](https://www.fab.com/listings/b6add01b-9244-452a-9f4b-7b8db8db2325)
 
 [Check out the documentation](Documentation)
 

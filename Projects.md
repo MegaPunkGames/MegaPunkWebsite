@@ -10,4 +10,4 @@ has_toc: false
 
 # MegaBoids
 
-[![Mega Boids Project](/assets/images/MegaBoidsProject.png)](MegaBoids)
+[![Mega Boids Project](/assets/images/MegaBoidsProject.png){: style="border-radius:24px" }](MegaBoids)
