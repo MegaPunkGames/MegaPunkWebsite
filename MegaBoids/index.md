@@ -39,4 +39,4 @@ Currently planned features for official release:
 * Optimize the HISM renderer
 * Throttling/Time slicing to reduce computations per frame
 * Debug hook to ease debugging of custom subprocessors
-* [Improved Blueprint support](Blueprint-support)
+* [Improved Blueprint support](Blueprint-API)

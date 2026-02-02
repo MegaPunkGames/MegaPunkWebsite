@@ -31,3 +31,10 @@
  - Added project settings
  - Added default boid config space partition
  - Added per spawner & spawn config space partition override
+ 
+## Version 0.4.0
+ - Allow respawning into existing group
+ - Chaos physics integration allowing traces
+ - Improved Blueprint API on Spawner and new Subsystem
+ - Added max delta time setting in project settings
+ - Added "Is instant" to impulse forces to make it a velocity change vs. an acceleration

@@ -5,4 +5,11 @@ parent: Documentation
 nav_order: 3
 ---
 
-Coming soon...
+<details open markdown="block">
+  <summary>
+    Contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>

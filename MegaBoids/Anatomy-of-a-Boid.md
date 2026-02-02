@@ -48,7 +48,7 @@ Initializing your boids is an important step to ensure they are in an adequate s
 > You might have some default initialization to do, for instance, for the [per-instance custom data](#per-instance-custom-data). You can add these initializers to your boid configuration directly. This feature is planned but not yet implemented. Use the spawner initializers in the mean time.
 
 {: .important-title }
-> [Requires C++](Blueprint-support)
+> [Requires C++](Blueprint-API#extending-the-plugin--mass-entity-blueprint-support)
 >
 > Most initializers are very specific and rely on C++ data types. Therefore, it is very likely you will need custom initializers for your project. These are written in C++ because of limited Blueprint support in Mass Entity. We invite you to head to the [technical documentation](Technical-Reference) for more information.
 
@@ -102,6 +102,15 @@ HISMs provide instanced rendering of static meshes with LOD support, giving you 
 | Transform double buffer | Should the boid be rendered with double buffered transform? This can reduce motion trails at the expense of performance. |
 | Use transform offset | Do you want to offset the 'Mesh' from it's pivot? This exposes a transform that will be applied to your boid representation. Note that this implies extra computations and it is therefore recommended that you apply your transform directly to your mesh instead. |
 | Transform offset | If 'Use transform offset' is enabled, apply this transform to your boids representation. |
+| Enable Physics | Activate/deactive Chaos physics bodies on the boids. This option will create the body setup configured in your StaticMesh asset when instanciating a boid and will use the provided collision profile to allow tracing and colliding with the boids. See our [Blueprint API](Blueprint-API) to retrieve the hit boid from a FHitResult returned by the trace. |
+| Use Default Collision Profile | When physics is enabled, will use the profile defined in the StaticMesh asset for collision. |
+| Collision Profile | When physics is enabled and not using the defautl profile, allows to configure the boids spawned with this configuration to use a different collision profile, including custom ones or the plugin provided 'MegaBoids Entities'. |
+
+{: .warning-title }
+> Note on physics
+> 
+> Enabling physics on a large number of boids is obviously very computationally expensive, use sparingly.
+> We plan on adding a second solution to do simple traces against the boids sphere that will not use Chaos physics, but will do the traces within the plugin's framework on background threads. We also have plans to rewrite the HISM renderer to limit the creation of physics bodies to certain LODs only.
 
 Since all boids share the same static mesh within a representation, it could look artificial and repetitive. You can change the look of each instance and add variety, using [per-instance custom data](#per-instance-custom-data) in your shader. MegaBoids also offers mix-and-matching different boid configurations within the spawner. You can learn more on this feature in the [Spawners and Groups](Spawners-and-Groups) page.
 
@@ -116,7 +125,7 @@ Initializing your custom data should be done in an [initializer](#initialization
 As mentioned previously, you can use per-instance custom data to animate your boids on the GPU, at the shader level. It is way beyond the scope of MegaBoids to offer a full fledged shader-based animation system. We would definitely like to offer such a solution in the future but haven't got to it yet. However, we demonstrate how it can be achieved in the demo to help get you started. You can see some bouncy balls and fish being animated with a simple shader as well as the butterflies implementing texture based vertex animation.
 
 {: .important-title }
-> [Requires C++](Blueprint-support)
+> [Requires C++](Blueprint-API#extending-the-plugin--mass-entity-blueprint-support)
 > 
 > Because accessing data in Mass Entity requires writing C++, we consider this a more advanced and technical operation. Suffice to say that you can access your per-instance custom data to update it from within a driving or movement subprocessors, or any other [Mass Entity processor](https://dev.epicgames.com/documentation/en-us/unreal-engine/overview-of-mass-entity-in-unreal-engine). More details available in the [technical documentation](Technical-Reference).
 
