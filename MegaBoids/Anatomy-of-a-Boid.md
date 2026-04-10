@@ -102,14 +102,14 @@ HISMs provide instanced rendering of static meshes with LOD support, giving you 
 | Transform double buffer | Should the boid be rendered with double buffered transform? This can reduce motion trails at the expense of performance. |
 | Use transform offset | Do you want to offset the 'Mesh' from it's pivot? This exposes a transform that will be applied to your boid representation. Note that this implies extra computations and it is therefore recommended that you apply your transform directly to your mesh instead. |
 | Transform offset | If 'Use transform offset' is enabled, apply this transform to your boids representation. |
-| Enable Physics | Activate/deactive Chaos physics bodies on the boids. This option will create the body setup configured in your StaticMesh asset when instanciating a boid and will use the provided collision profile to allow tracing and colliding with the boids. See our [Blueprint API](Blueprint-API) to retrieve the hit boid from a FHitResult returned by the trace. |
+| Enable Physics | Activate/deactive Chaos physics bodies on the boids. This option will create the body setup configured in your StaticMesh asset when instantiating a boid and will use the provided collision profile to allow tracing and colliding with the boids. See our [Blueprint API](Blueprint-API) to retrieve the hit boid from a FHitResult returned by the trace. |
 | Use Default Collision Profile | When physics is enabled, will use the profile defined in the StaticMesh asset for collision. |
 | Collision Profile | When physics is enabled and not using the defautl profile, allows to configure the boids spawned with this configuration to use a different collision profile, including custom ones or the plugin provided 'MegaBoids Entities'. |
 
 {: .warning-title }
 > Note on physics
 > 
-> Enabling physics on a large number of boids is obviously very computationally expensive, use sparingly.
+> Enabling physics on a large number of boids is obviously very computationally expensive and should be use sparingly.
 > We plan on adding a second solution to do simple traces against the boids sphere that will not use Chaos physics, but will do the traces within the plugin's framework on background threads. We also have plans to rewrite the HISM renderer to limit the creation of physics bodies to certain LODs only.
 
 Since all boids share the same static mesh within a representation, it could look artificial and repetitive. You can change the look of each instance and add variety, using [per-instance custom data](#per-instance-custom-data) in your shader. MegaBoids also offers mix-and-matching different boid configurations within the spawner. You can learn more on this feature in the [Spawners and Groups](Spawners-and-Groups) page.
