@@ -2,7 +2,7 @@
 title: Movement Models
 layout: megaboids
 parent: User Guide
-nav_order: 4
+nav_order: 5
 back_to_top: true
 back_to_top_text: "Back to top"
 ---

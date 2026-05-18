@@ -2,7 +2,7 @@
 title: Space Partition
 layout: megaboids
 parent: User Guide
-nav_order: 6
+nav_order: 7
 ---
 
 <details open markdown="block">

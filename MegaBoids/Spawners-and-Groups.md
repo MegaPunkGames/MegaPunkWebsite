@@ -2,7 +2,7 @@
 title: Spawners and Groups
 layout: megaboids
 parent: User Guide
-nav_order: 5
+nav_order: 6
 ---
 
 <details open markdown="block">
