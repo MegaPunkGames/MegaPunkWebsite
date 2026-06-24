@@ -1,6 +1,6 @@
 ---
 title: Movement Models
-layout: megaboids
+layout: plugins
 parent: User Guide
 nav_order: 5
 back_to_top: true

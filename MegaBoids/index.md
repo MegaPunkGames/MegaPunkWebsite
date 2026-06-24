@@ -1,6 +1,6 @@
 ---
 title: MegaBoids
-layout: megaboids
+layout: plugins
 parent: Projects
 nav_order: 1
 has_toc: false

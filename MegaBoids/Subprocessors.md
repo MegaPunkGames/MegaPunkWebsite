@@ -1,6 +1,6 @@
 ---
 title: Subprocessors
-layout: megaboids
+layout: plugins
 parent: Technical Documentation
 nav_order: 3
 back_to_top: true

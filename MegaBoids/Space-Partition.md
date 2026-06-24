@@ -1,6 +1,6 @@
 ---
 title: Space Partition
-layout: megaboids
+layout: plugins
 parent: User Guide
 nav_order: 7
 ---

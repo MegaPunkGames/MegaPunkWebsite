@@ -1,6 +1,6 @@
 ---
 title: Anatomy of a Boid
-layout: megaboids
+layout: plugins
 parent: User Guide
 nav_order: 2
 back_to_top: true

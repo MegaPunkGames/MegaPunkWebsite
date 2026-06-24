@@ -1,6 +1,6 @@
 ---
 title: Boid Lifetime
-layout: megaboids
+layout: plugins
 parent: Technical Documentation
 nav_order: 2
 back_to_top: true

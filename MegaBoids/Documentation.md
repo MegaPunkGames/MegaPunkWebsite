@@ -1,6 +1,6 @@
 ---
 title: Documentation
-layout: megaboids
+layout: plugins
 parent: MegaBoids
 nav_order: 3
 has_toc: false

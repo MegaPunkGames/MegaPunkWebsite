@@ -1,6 +1,6 @@
 ---
 title: C++ API
-layout: megaboids
+layout: plugins
 parent: Technical Reference
 nav_order: 2
 back_to_top: true

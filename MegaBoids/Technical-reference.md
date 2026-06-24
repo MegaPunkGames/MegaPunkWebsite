@@ -1,7 +1,8 @@
 ---
 title: Technical Reference
-layout: megaboids
+layout: plugins
 parent: Documentation
+grand_parent: MegaBoids
 nav_order: 3
 ---
 

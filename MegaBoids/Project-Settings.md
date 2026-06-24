@@ -1,6 +1,6 @@
 ---
 title: Project Settings
-layout: megaboids
+layout: plugins
 parent: User Guide
 nav_order: 8
 ---

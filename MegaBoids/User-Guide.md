@@ -1,7 +1,8 @@
 ---
 title: User Guide
-layout: megaboids
+layout: plugins
 parent: Documentation
+grand_parent: MegaBoids
 nav_order: 2
 has_toc: false
 ---
@@ -13,4 +14,5 @@ has_toc: false
 1. [Environment forces](Environment-Subprocessors)
 1. [Movement Models](Movement-Models)
 1. [Spawners and Groups](Spawners-and-Groups)
+1. [Space Partition](Space-Partition)
 1. [Project Settings](Project-Settings)

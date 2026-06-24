@@ -1,6 +1,6 @@
 ---
 title: Environment forces
-layout: megaboids
+layout: plugins
 parent: User Guide
 nav_order: 4
 back_to_top: true

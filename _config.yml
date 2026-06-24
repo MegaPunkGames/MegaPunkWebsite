@@ -13,8 +13,34 @@ defaults:
       path: "" # an empty string here means all files in the project
       type: "pages"
     values:
-      layout: "default"
-            
+      layout: "home"
+  - scope:
+      path: "MegaBoids"
+      type: "pages"
+    values:
+      search_title: MegaBoids Documentation
+      external_links:
+        - title: Get MegaBoids on Fab
+          url: https://www.fab.com/listings/b6add01b-9244-452a-9f4b-7b8db8db2325
+        - title: Demo on GitHub
+          url: https://github.com/MegaPunkGames/MegaBoidsDemo
+      aux_links:
+        Get MegaBoids on Fab: https://www.fab.com/listings/b6add01b-9244-452a-9f4b-7b8db8db2325
+      footer_content: 'Demo and documentation last updated for version 0.4.0'
+  - scope:
+      path: "CIEC"
+      type: "pages"
+    values:
+      search_title: CallInEditorContainer Documentation
+      external_links:
+        - title: Get CallInEditorContainer on Fab
+          url: https://www.fab.com/listings/dcc4e9bb-9097-48c0-a9cf-30168b003463
+        - title: Demo on GitHub
+          url: https://github.com/MegaPunkGames/UE-CallInEditorContainer
+      aux_links:
+        Get CallInEditorContainer on Fab: https://www.fab.com/listings/dcc4e9bb-9097-48c0-a9cf-30168b003463
+      footer_content: 'Demo and documentation last updated for version 1.1.1'
+
 exclude:
   # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:
   - .sass-cache/

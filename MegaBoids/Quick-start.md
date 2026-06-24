@@ -1,6 +1,6 @@
 ---
 title: Quick Start
-layout: megaboids
+layout: plugins
 parent: MegaBoids
 nav_order: 2
 ---

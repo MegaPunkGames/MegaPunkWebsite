@@ -1,6 +1,6 @@
 ---
   title: Release Notes
-  layout: megaboids
+  layout: plugins
   nav_order: 1
   parent: MegaBoids
 ---

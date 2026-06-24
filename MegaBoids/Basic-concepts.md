@@ -1,6 +1,6 @@
 ---
 title: Basic Concepts
-layout: megaboids
+layout: plugins
 parent: User Guide
 nav_order: 1
 has_toc: false

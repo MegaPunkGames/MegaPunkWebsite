@@ -1,6 +1,6 @@
 ---
 title: Blueprint API
-layout: megaboids
+layout: plugins
 parent: Technical Reference
 nav_order: 1
 back_to_top: true

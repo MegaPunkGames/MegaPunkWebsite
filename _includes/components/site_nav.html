@@ -20,10 +20,10 @@
     {% include components/nav/pages.html pages=site.html_pages top_level='' all=include.all %}
   {% endif %}
 
-  {%- if layout.external_links -%}
+  {%- if page.external_links -%}
     <br/>
     <ul class="nav-list">
-      {%- for node in layout.external_links -%}
+      {%- for node in page.external_links -%}
         <li class="nav-list-item external">
           <a href="{{ node.url | absolute_url }}" class="nav-list-link external"
             {% if node.opens_in_new_tab or node.opens_in_new_tab == nil and site.nav_external_links_new_tab %}

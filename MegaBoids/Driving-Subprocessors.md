@@ -1,6 +1,6 @@
 ---
 title: Driving forces
-layout: megaboids
+layout: plugins
 parent: User Guide
 nav_order: 3
 back_to_top: true
