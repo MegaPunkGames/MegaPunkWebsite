@@ -30,7 +30,7 @@ FCallInEditorContainer ButtonContainer;
 ```
 
 {: .important }
-> FCallInEditorContainer properties should always be included within **WITH_EDITORONLY_DATA** preprocessor directives since that structure is defined in an editor module.
+> Although the FCallInEditorContainer does not hold any data, it is prefereable to always include these properties within **WITH_EDITORONLY_DATA** preprocessor directives to exclude them from serialization in Shipping builds.
 
 ## Adding your CallInEditor function to your container
 Once you have a container UPROPERTY, you can create the UFUNCTIONs you want it to display. We use a custom metadata tags named `CallInEditorContainer` to specify the container property to use.
@@ -52,7 +52,7 @@ Once you can see your button in the Details panel under your container, you can 
 | Grouping and ordering | **Attributes**: Category<br>**Metadata**: DisplayAfter, DisplayPriority |
 
 {: .note }
-> EditCondition without EditConditionHides only supports simple bool property conditions.
+> Because it is impossible for plugins to evaluate complex EditCondition expressions without modifying the engine, function buttons with complex expressions will always be enabled. Therefore, users should rely on the EditConditionHides attribute Or put complex conditions in the CanEditChange method override.
 
 You can of course also use the regular UFUNCTION attributes directly.
 

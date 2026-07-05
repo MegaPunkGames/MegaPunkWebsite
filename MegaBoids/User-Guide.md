@@ -14,5 +14,6 @@ has_toc: false
 1. [Environment forces](Environment-Subprocessors)
 1. [Movement Models](Movement-Models)
 1. [Spawners and Groups](Spawners-and-Groups)
+1. [Environment Avoidance](Environment-Avoidance)
 1. [Space Partition](Space-Partition)
 1. [Project Settings](Project-Settings)

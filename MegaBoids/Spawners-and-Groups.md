@@ -28,9 +28,10 @@ MegaBoids spawners are an actor class that you must place in your level in order
 | Spawn configs | List of boid configurations to spawn within the group. |
 | Initializer subprocessors | List of [initializers](Anatomy-of-a-Boid#initialization) used to setup the boids in the spawned groups. |
 | Driving subprocessors | List of [driving subprocessors](Driving-Subprocessors) to specialize the boids in the spawned groups. |
-| Obstacles | List of environment obstacles used for [avoidance](Anatomy-of-a-Boid#avoidance). |
-| Obstacles color | Color to render the obstacle shapes in editor. |
-| Use space partitioning | Should the spawned boid groups use a space partition? More details [below](#space-partition) |
+| Environment subprocessors | List of [environment subprocessors](Environment-Subprocessors) used to apply environment forces to the boids in the spawned groups. |
+| Environment avoidance | Properties relating to environment/obstacles [avoidance](Anatomy-of-a-Boid#avoidance). See the [Environment Avoidance page](Environment-Avoidance) for more details. |
+| Use space partitioning | Should the spawned boid groups use a space partition? More details on the [Space Partition page](Space-Partition). |
+
 
 # Groups
 The first thing to know about groups is that they are all **independent from each other** even if originating from the same spawner. Every time you spawn a group, it will live in it's own world without knowledge and communication with other groups. This is a conscious decision we made that allows us to achieve better multi-threading performance since we can process groups in parallel tasks. Groups also share common data like obstacles and having this data confined only to the boids who use it also reduces the required processing. It appears limiting at first, but it's really not when you consider [composition](#group-composition). We also don't expect a large number of groups to be active at any given time. [Let us know](mailto:contact@megapunkgames.com) if you come to different conclusions or have different needs.

@@ -26,7 +26,7 @@ defaults:
           url: https://github.com/MegaPunkGames/MegaBoidsDemo
       aux_links:
         Get MegaBoids on Fab: https://www.fab.com/listings/b6add01b-9244-452a-9f4b-7b8db8db2325
-      footer_content: 'Demo and documentation last updated for version 0.4.0'
+      footer_content: 'Demo and documentation last updated for version 0.5.0'
   - scope:
       path: "CIEC"
       type: "pages"
@@ -39,7 +39,7 @@ defaults:
           url: https://github.com/MegaPunkGames/UE-CallInEditorContainer
       aux_links:
         Get CallInEditorContainer on Fab: https://www.fab.com/listings/dcc4e9bb-9097-48c0-a9cf-30168b003463
-      footer_content: 'Demo and documentation last updated for version 1.1.1'
+      footer_content: 'Demo and documentation last updated for version 1.2.0'
 
 exclude:
   # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:

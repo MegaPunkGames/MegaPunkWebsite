@@ -76,7 +76,7 @@ The MegaBoids Subsystem API allows finer grained control of boids lifetime manag
 | Get Boid Transform and Velocity | Get the current transform and velocity for the provided boid.<br><br>**<ins>Return value</ins>**<br>_Transform_: The boid's transform.<br>_Velocity_: The boid's velocity vector. | [![Get Boid Transform and Velocity Preview](/assets/images/MegaBoids/GetBoidTransformAndVelocityPreview.png)](/assets/images/MegaBoids/GetBoidTransformAndVelocityPreview.png) |
 | Get Boid Hit result | Gets the boid that was hit by a trace hit result.<br><br>**<ins>Parameters</ins>**<br>_Trace Hit Result_: Hit result from a trace for which we want to determine if a boid was hit. <br><br>**<ins>Return value</ins>**<br>_Boid Hit Result_: Boid hit result with the handle to the boid found. | [![Get Boid Hit Result Preview](/assets/images/MegaBoids/GetBoidHitResultPreview.png)](/assets/images/MegaBoids/GetBoidHitResultPreview.png) |
 | Create Boid Group | Create a boid group container.<br><br>**<ins>Parameters</ins>**<br>_Descriptor_: Descriptor for the group that contains the details of how to configure the group, [see below](#megaboidsboidgroupdescriptor). <br><br>**<ins>Return value</ins>**<br>_Group Id_: Id of the newly created group. | [![Create Boid Group Preview](/assets/images/MegaBoids/CreateBoidGroupPreview.png)](/assets/images/MegaBoids/CreateBoidGroupPreview.png) |
-| Create Group Subset | Create a subset of boids within a group. Subsets are used to spawn batches of boids that shared common properties.<br><br>**<ins>Parameters</ins>**<br>_Group Id_: Id for the group that contains the subset.<br>_Descriptor_: Descriptor for the subset that contains the details of how to configure the subset, [see below](#megaboidsgroupsubsetdescriptor). <br><br>**<ins>Return value</ins>**<br>_Subset Id_: Id of the newly created subset. | [![Create Group Subset Preview](/assets/images/MegaBoids/CreateGroupSubsetPreview.png)](/assets/images/MegaBoids/CreateGroupSubsetPreview.png) |
+| Create Group Subset | Create a subset of boids within a group. Subsets are used to spawn batches of boids that shared common properties.<br><br>**<ins>Parameters</ins>**<br>_Group Id_: Id for the group that contains the subset.<br>_Descriptor_: Descriptor for the subset that contains the details of how to configure the subset, [see below](#megaboidsgroupsubsetdescriptor).<br><br>**<ins>Return value</ins>**<br>_Subset Id_: Id of the newly created subset. | [![Create Group Subset Preview](/assets/images/MegaBoids/CreateGroupSubsetPreview.png)](/assets/images/MegaBoids/CreateGroupSubsetPreview.png) |
 | Spawn Boid Subset | Schedule a task to spawn a batch of boids of the provided subset.<br><br>**<ins>Parameters</ins>**<br>_Spawn Data_: The spawning details, [see below](#megaboidsgroupsubsetspawndata)<br>_On Spawned Callback_: Optional event called upon spawn completion. Boids might not be fully initialized yet and will not be simulated or rendered until initialization completes. The event returns the boid handles of all created boids. | [![Spawn Boid Subset Preview](/assets/images/MegaBoids/SpawnBoidSubsetPreview.png)](/assets/images/MegaBoids/SpawnBoidSubsetPreview.png) |
 | Spawn Boid Subsets | Schedule a task to spawn multiple batches of boids of the provided subsets.<br><br>**<ins>Parameters</ins>**<br>_Spawn Data_: Array of the spawning details, [see below](#megaboidsgroupsubsetspawndata)<br>_On Spawned Callback_: Optional event called upon spawn completion. Boids might not be fully initialized yet and will not be simulated or rendered until initialization completes. The event returns the boid handles of all created boids. | [![Spawn Boid Subsets Preview](/assets/images/MegaBoids/SpawnBoidSubsetsPreview.png)](/assets/images/MegaBoids/SpawnBoidSubsetsPreview.png) |
 | Despawn Boid | Schedules a task to despawn the provided boid.<br><br>**<ins>Parameters</ins>**<br>_Handle_: Handle to the boid to despawn. | [![Despawn Boid Preview](/assets/images/MegaBoids/DespawnBoidPreview.png)](/assets/images/MegaBoids/DespawnBoidPreview.png) |
@@ -114,8 +114,8 @@ The MegaBoids Subsystem API allows finer grained control of boids lifetime manag
 | Field     | Details     |
 | :-------- | :---------- |
 | _Type_ | Type of space partition to use. None, 3D Cell Grid or Spatial Hash. |
-| _Grid cell size factor_ | **[Spatial Hash and Grid only]**<br>Size of the cells of the space partition as a factor of boid view distance. Cell size will be equal to 'BoidSize * ViewDistanceFactor * GridCellSizeFactor'. |
-| _Max boids per grid cell_ | **[Spatial Hash and Grid only]**<br>The maximum number of boids tracked within a cell, allocated on a first come, first serve basis. |
+| _Grid cell size factor_ | Size of the cells of the space partition as a factor of boid view distance. Cell size will be equal to 'BoidSize * ViewDistanceFactor * GridCellSizeFactor'. |
+| _Max boids per grid cell_ | The maximum number of boids tracked within a cell, allocated on a first come, first serve basis. |
 | _Cells allocated per batch_ | **[Spatial Hash only]**<br>Spatial Hash cells are allocated in batches with each batch having this number of cells reserved in memory. |
 | _Initial cell batches allocated_ | **[Spatial Hash only]**<br>Initial nmumber of cells allocated when the space partition gets created. Ideally, this would cover all required cells for the boids lifetime. |
 | _Range query algorithm_ | **[Spatial Hash only]**<br>Algorithm used for range queries. Default is BigMaxLitMin |
@@ -124,11 +124,22 @@ The MegaBoids Subsystem API allows finer grained control of boids lifetime manag
 
 [![MegaBoidsGroupSubsetSpawnData Preview](/assets/images/MegaBoids/MegaBoidsGroupSubsetSpawnDataPreview.png)](/assets/images/MegaBoids/MegaBoidsGroupSubsetSpawnDataPreview.png)
 
-| Field     | Details     |
-| :-------- | :---------- |
-| _Subset Id_ | Id of the subset to spawn (returned from _Create Group Subset_). |
-| _Entity Count_ | Number of boids to spawn. |
-| _Initializer subprocessors_ | List of initializers to apply after boid spawn. |
+| Field                       | Description                                                      |
+| :-------------------------- | :--------------------------------------------------------------- |
+| _Entity Count_              | Number of boids to spawn.                                        |
+| _Initializer subprocessors_ | List of initializers to apply after boid spawn.                  |
+| _Subset Id_                 | Id of the subset to spawn (returned from _Create Group Subset_). |
+
+# Static avoidance source
+
+In version 0.5, MegaBoids introduced static SDF based environment avoidance. The generation process is done by evaluating the distance to the closest obstacle at regular interval within the spawner bounds. To allow configuration for different types of boids, you can configure your SDF to have any number of different collision sources. The generation will therefore, for all sources, evaluate the closest distance to their obstacles and the nearest overall obstacle distance will be saved for the voxel value.
+
+You can provide your own custom sources to generate the SDF if required. This feature is available in C++ and also in Blueprint. To create your own source, subclass `MegaBoidsStaticAvoidanceSource` and override the appropriate methods. There are two different methods to override: `PreGenerate` and `GetDistanceFromObstacles`.
+
+| Function       | Description                                                      |
+| :------------- | :--------------------------------------------------------------- |
+| Pre Generate | [_Optional_] Called before the SDF generation to allow pre-generation setup of the source. For instance, you could load a 3D texture or gather world static geometry in a cache.<br><br>**<ins>Parameters</ins>**<br>_Spawner_: Spawner for which we are creating the SDF. You can use the spawner to access information about the bounds for which we are generating the SDF. |
+| GetDistanceFromObstacles | Called for each voxel in order to retrieve the distance to closest collision at that location.<br><br>**<ins>Parameters</ins>**<br>_Location_: Location, in world coordinates, of the voxel for which we want the distance to closest obstacle.<br><br>**<ins>Return value</ins>**<br>_Distance_: Distance to the closest collision, in Unreal units. |
 
 # Extending the plugin & Mass Entity blueprint support
 
@@ -137,5 +148,8 @@ MegaBoids is a plugin based on the Mass Entity framework. Unfortunately, Mass En
 * Environment subprocessors
 * Initialization subprocessors
 * Movement models
+
+Optionally, you can also extend these features in C++ as well as Blueprint:
+* Static avoidance source (including Editor integration)
 
 This is a good opportunity for you to learn C++. We put a lot of effort into abstracting the concepts of Mass Entity in a digestible manner such that developers can focus on what matters to them: **making great games**! If all else fails, check out our [consulting services](About-MegaPunk-Games#consulting-and-help).

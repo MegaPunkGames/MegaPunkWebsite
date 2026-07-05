@@ -2,7 +2,7 @@
 title: Project Settings
 layout: plugins
 parent: User Guide
-nav_order: 8
+nav_order: 9
 ---
 
 # Project Settings
