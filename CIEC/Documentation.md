@@ -48,13 +48,12 @@ Once you can see your button in the Details panel under your container, you can 
 
 | Category  | UPROPERTY attributes |
 | :-------- | :--------            |
-| Visibility | **Attributes**: VisibleAnywhere, VisibleDefaultsOnly, VisibleInstanceOnly, EditAnywhere, EditDefaultsOnly, EditInstanceOnly<br>**Metadata**: EditCondition, EditConditionHides |
+| Visibility | **Attributes**: VisibleAnywhere, VisibleDefaultsOnly, VisibleInstanceOnly, EditAnywhere, EditDefaultsOnly, EditInstanceOnly<br>**Metadata**: EditCondition, EditConditionHides<br><br>**_Note_**<br>**Visible*** and **Edit*** attributes are equivalent. The buttons are always considered "Editable". |
 | Grouping and ordering | **Attributes**: Category<br>**Metadata**: DisplayAfter, DisplayPriority |
 
-{: .note }
-> Because it is impossible for plugins to evaluate complex EditCondition expressions without modifying the engine, function buttons with complex expressions will always be enabled. Therefore, users should rely on the EditConditionHides attribute Or put complex conditions in the CanEditChange method override.
+Hiding your button container can also be done with the `CanEditChange(FProperty*)` C++ function override.
 
-You can of course also use the regular UFUNCTION attributes directly.
+You can, of course, also use the regular function attributes directly on the UFUNCTION.
 
 | Category  | UFUNCTION attributes |
 | :-------- | :--------            |
