@@ -41,7 +41,7 @@ void DoAction();
 ```
 
 {: .note }
-> You should not include the regular **CallInEditor** attribute, but instead use the CallInEditorContaier metadata tag. Adding CallInEditor will duplicate your button in the Details panel.
+> You should not include the regular **CallInEditor** attribute, but instead use the CallInEditorContainer metadata tag. Adding CallInEditor will duplicate your button in the Details panel.
 
 ## Setup your container
 Once you can see your button in the Details panel under your container, you can set it up to display how and when you want using regular UPROPERTY attributes and metadata.
