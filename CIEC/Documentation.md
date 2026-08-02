@@ -51,9 +51,12 @@ Once you can see your button in the Details panel under your container, you can 
 | Visibility | **Attributes**: VisibleAnywhere, VisibleDefaultsOnly, VisibleInstanceOnly, EditAnywhere, EditDefaultsOnly, EditInstanceOnly<br>**Metadata**: EditCondition, EditConditionHides<br><br>**_Note_**<br>**Visible*** and **Edit*** attributes are equivalent. The buttons are always considered "Editable". |
 | Grouping and ordering | **Attributes**: Category<br>**Metadata**: DisplayAfter, DisplayPriority |
 
-Hiding your button container can also be done with the `CanEditChange(FProperty*)` C++ function override.
+{: .note }
+> Disabling and hiding your button container can also be done with the `CanEditChange(FProperty*)` C++ function override.
 
-You can, of course, also use the regular function attributes directly on the UFUNCTION.
+## Setup your function
+
+You can, of course, also use the regular function attributes directly on the UFUNCTION to customize the button itself.
 
 | Category  | UFUNCTION attributes |
 | :-------- | :--------            |
@@ -81,6 +84,8 @@ class B : public A
 ```
 
 ## Blueprint support
-CallInEditorContainer supports metadata injection plugins like MDMetaDataEditor. However, we cannot distribute it ourselves, nor would we want to do so. Therefore, we invite you to [download it directly from their GitHub](https://github.com/DoubleDeez/MDMetaDataEditor).
+In order to customize the display of your details panel buttons, CallInEditorContainer relies on C++ metadata for both your containers and functions. When dealing with blueprint, some of these metadata attributes are not exposed in the default editor. Starting with version 1.3, we added the `Call In Editor Container` category in the Blueprint editor to expose the supported metadata attributes on both functions and containers.
 
-All of the previously described features can be replicated using a Blueprint metadata editor and note that the demo does demonstrate this Blueprint support, which was setup using MDMetaDataEditor. The metadata added through MDMetaDataEditor remains even when MDMetaDataEditor is not installed, therefore we can still see this feature in action in the demo.
+[![Blueprint Preview](/assets/images/CIEC/BlueprintPreview.png)](/assets/images/CIEC/BlueprintPreview.png)
+
+The plugin also supports metadata injection plugins like MDMetaDataEditor. However, we cannot distribute it ourselves, nor would we want to do so. Therefore, you can [download it directly from their GitHub](https://github.com/DoubleDeez/MDMetaDataEditor) if you prefer to edit your metadata that way. All of the described features can be accessed using a Blueprint metadata editor. Special thanks to the team behind MDMetaDataEditor for their work. It was helpful in implementing our own version of metadata attributes properties.
