@@ -35,8 +35,6 @@ We are currently releasing this plugin as an ALPHA version while we keep on addi
 Currently planned features for official release:
 * New driving force subprocessors
 * New movement model subprocessors
-* More obstacle types and allow inside vs. outside avoidance
 * Optimize the HISM renderer
 * Throttling/Time slicing to reduce computations per frame
 * Debug hook to ease debugging of custom subprocessors
-* [Improved Blueprint support](Blueprint-API)

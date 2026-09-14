@@ -138,7 +138,8 @@ You can provide your own custom sources to generate the SDF if required. This fe
 
 | Function       | Description                                                      |
 | :------------- | :--------------------------------------------------------------- |
-| Pre Generate | [_Optional_] Called before the SDF generation to allow pre-generation setup of the source. For instance, you could load a 3D texture or gather world static geometry in a cache.<br><br>**<ins>Parameters</ins>**<br>_Spawner_: Spawner for which we are creating the SDF. You can use the spawner to access information about the bounds for which we are generating the SDF. |
+| Pre Generate | [_Optional_] Called before the SDF generation to allow pre-generation setup of the source. For instance, you could load a 3D texture or gather world static geometry in a cache. |
+| Post Generate | [_Optional_] Called after the SDF generation to allow cleanup of the source. |
 | GetDistanceFromObstacles | Called for each voxel in order to retrieve the distance to closest collision at that location.<br><br>**<ins>Parameters</ins>**<br>_Location_: Location, in world coordinates, of the voxel for which we want the distance to closest obstacle.<br><br>**<ins>Return value</ins>**<br>_Distance_: Distance to the closest collision, in Unreal units. |
 
 # Extending the plugin & Mass Entity blueprint support
